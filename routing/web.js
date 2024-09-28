@@ -21,6 +21,9 @@ route.get('/',FrontController.login)
 route.get('/register',FrontController.register)
 route.get('/contact',FrontController.contact)
 
+// insert data
+route.post('/insertStudent',FrontController.insertStudent)
+
 
 
 //adminController

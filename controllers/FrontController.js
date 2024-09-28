@@ -38,6 +38,15 @@ class FrontController{
             console.log(error)
         }
     }
+
+    // insert Data
+    static insertStudent =async(req,res)=>{
+        try{
+            console.log(req.body)
+        }catch (error){
+            console.log(error)
+        }
+    }
      
 
 
