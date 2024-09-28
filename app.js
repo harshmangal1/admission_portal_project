@@ -14,6 +14,9 @@ app.set('view engine','ejs')
 // connectDB
 connectDB()
 
+//parse application 
+app.use(express.urlencoded({ extended: false }))
+
 
 //localhost:3000
 app.use('/',web)

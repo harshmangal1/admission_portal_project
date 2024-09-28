@@ -15,8 +15,8 @@ const UserSchema = mongoose.Schema({
     },
     roll:{
         type:String,
-        default:"user"
+        default:"Student"
     }
-})
+},{timestamps:true})
 const UserModel = mongoose.model('user',UserSchema)
 module.exports = UserModel
