@@ -15,20 +15,27 @@ const route = express.Router()
 // route.get("/team", (req, res) => {
 //     res.send("team");
 //   });
-route.get('/home',FrontController.home)
-route.get('/about',FrontController.about)
-route.get('/',FrontController.login)
-route.get('/register',FrontController.register)
-route.get('/contact',FrontController.contact)
+route.get('/home',FrontController.home);
+route.get('/about',FrontController.about);
+route.get('/',FrontController.login);
+route.get('/register',FrontController.register);
+route.get('/contact',FrontController.contact);
 
 // insert data
-route.post('/insertStudent',FrontController.insertStudent)
+route.post('/insertStudent',FrontController.insertStudent);
 
 
 
 //adminController
-route.get('/admin/dashboard',AdminController.dashboard)
-route.get('/admin/studentDisplay',AdminController.displayStudent)
+route.get('/admin/dashboard',AdminController.dashboard);
+route.get('/admin/studentDisplay',AdminController.displayStudent);
+route.get('/admin/deleteStudent/:id',AdminController.deleteStudent);
+
+route.get('/admin/studentView/:id',AdminController.viewStudent);
+route.get('/admin/StudentEdit/:id',AdminController.updateStudent);
+
+//add student
+route.post('/admin/insertStudent',AdminController.StudentInsert);
 
 
-module.exports = route
+module.exports = route;

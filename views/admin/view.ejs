@@ -46,26 +46,21 @@
                   <th>Name</th>
                   <th>Email</th>
                   <th>Password</th>
-                  <th>Action</th>
+                   
                 </tr>
 
                 </thead>
                 <tbody>
-                 <% d.forEach((item)=>{ %>
+                  
                   <tr>
-                    <td><%= item._id %></td>
-                    <td><%= item.name %></td>
-                    <td><%= item.email %></td>
-                    <td><%= item.password %></td>
-                    <td>
-          
-                      <a href="/admin/studentView/<%= item._id %>" class="btn btn-info">View</a>
-                      <a href="/admin/StudentEdit/<%= item._id %>" class="btn btn-success">Edit</a>
-                      <a href="/admin/deleteStudent/<%= item._id %>" class="btn btn-danger">Delete</a>
-                    </td>
+                    <td><%= view._id %></td>
+                    <td><%= view.name %></td>
+                    <td><%= view.email %></td>
+                    <td><%= view.password %></td>
+                     
                   </tr>
 
-                 <% }) %>
+                 
                 </tbody>
                 <tfoot>
                 <tr>
@@ -73,7 +68,7 @@
                   <th>Name</th>
                   <th>Email</th>
                   <th>Password</th>
-                  <th>Action</th>
+                   
                 </tr>
                 </tfoot>
               </table>
@@ -87,40 +82,8 @@
     </div>
     <!-- /.content -->
   </div>
-  <!-- /.content-wrapper -->
-  <div class="modal fade" id="addStudent">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h4 class="modal-title">Add Student</h4>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <form action="/admin/insertStudent" method="post">
-            <div class="form-group">
-              <label for="">Name</label>
-              <input type="text" name="name" class="form-control">
-            </div>
-            <div class="form-group">
-              <label for="">Email</label>
-              <input type="text" name="email" class="form-control">
-            </div>
-            <div class="form-group">
-              <label for="">Password</label>
-              <input type="text" name="password" class="form-control">
-            </div>
-            <button type="submit" class="btn btn-info">Submit</button>
-          </form>
-          
-        </div>
-        
-      </div>
-      <!-- /.modal-content -->
-    </div>
-    <!-- /.modal-dialog -->
-  </div>
+
+
   <!-- /.modal -->
   
 
