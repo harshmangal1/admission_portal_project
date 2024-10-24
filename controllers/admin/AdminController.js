@@ -34,6 +34,14 @@ class AdminController{
             console.log(error);
         }
     };
+    static editStudent = async(req,res)=>{
+        try{
+            const result = await UserModel.findById(req.params.id)
+            res.render('admin/StudentEdit', {d:result})
+        }catch (error){
+            console.log(error);
+        }
+    };
     static updateStudent = async(req,res)=>{
         try{
             const id = req.params.id;

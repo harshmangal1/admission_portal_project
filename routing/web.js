@@ -23,6 +23,9 @@ route.get('/contact',FrontController.contact);
 
 // insert data
 route.post('/insertStudent',FrontController.insertStudent);
+//verifyLogin
+route.post('/verifyLogin',FrontController.verifyLogin);
+route.get('/logout',FrontController.logout);
 
 
 

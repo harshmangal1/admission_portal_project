@@ -13,10 +13,21 @@ const UserSchema = mongoose.Schema({
         type:String,
         require:true
     },
-    roll:{
+    role:{
         type:String,
         default:"Student"
+    },
+    image:{
+        public_id :{
+            type:String,
+            required:true,
+        },
+        url :{
+            type:String,
+            required:true,
+        },
     }
+
 },{timestamps:true})
 const UserModel = mongoose.model('user',UserSchema)
 module.exports = UserModel
