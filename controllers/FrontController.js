@@ -121,7 +121,8 @@ class FrontController {
   };
   static logout = async (req, res) => {
     try {
-      res.render('/');
+      res.clearCookie("token"); //clearCookie  --> token expire
+      res.redirect("/");
     } catch (error) {
       console.log(error);
     }

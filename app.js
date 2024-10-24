@@ -7,7 +7,10 @@ const connectDB = require("./db/connectDB");
 const session = require('express-session');
 const flash = require('connect-flash');
 const fileUpload= require('express-fileupload')
+let cookieParser = require('cookie-parser')
 
+//token get 
+app.use(cookieParser())
 
 // css public link
 app.use(express.static('public'))
