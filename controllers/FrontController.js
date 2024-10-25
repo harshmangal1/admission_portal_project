@@ -2,13 +2,14 @@ const UserModel = require("../models/user");
 const TeacherModel = require("../models/teacher");
 const cloudinary = require('cloudinary')
 const bcrypt = require('bcrypt')
-const jsonwebtoken = require('jsonwebtoken')
+const jwt = require('jsonwebtoken')
+
 
 //setup
 cloudinary.config({
   cloud_name:"dgggmgzas",
   api_key:"467741997849787",
-  api_secrect:"wN7oPL0_W5uzP9jIR1aqtvX18UI",
+  api_secret:"wN7oPL0_W5uzP9jIR1aqtvX18UI",
 })
 class FrontController {
   static home = async (req, res) => {
@@ -82,7 +83,7 @@ class FrontController {
         },
       });
       req.flash("success", "Register Secure ! plz Login");
-      req.redirect("/");
+      res.redirect("/");
     } catch (error) {
       console.log(error);
     }
