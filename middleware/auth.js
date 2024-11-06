@@ -1,7 +1,8 @@
 const jwt = require('jsonwebtoken')
 const { verifyLogin } = require('../controllers/FrontController')
+const UserModel = require('../models/user');
 
-const checkAuth =(req,res, next)=>{
+const checkAuth =async(req,res, next)=>{
     // console.log("hello auth")
     const {token} = req.cookies
     if(!token){
@@ -10,6 +11,9 @@ const checkAuth =(req,res, next)=>{
     }else{
         const verifyToken = jwt.verify(token,'hars12345')
         // console.log(verifyLogin)
+        const data = await UserModel.findOne({_id:verifyToken.ID})
+        // console.log(data)
+        req.userData= data
         next();
 
 

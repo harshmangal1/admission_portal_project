@@ -1,9 +1,0 @@
-// //image upload
-// const file = req.files.image;
-// const imageUpload = await cloudinary.uploader.upload(
-//     file.tempFilePath,
-//     {
-//         folder:"userprofile",
-//     }
-// );
-// console.log(imageUpload);
