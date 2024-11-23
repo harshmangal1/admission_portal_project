@@ -2,16 +2,18 @@ const UserModel = require('../../models/user');
 class AdminController{
     static dashboard = async(req,res)=>{
         try{
-            res.render('admin/dashboard');
+            
+            res.render('admin/dashboard',{n:name,i:image});
         }catch (error){
             console.log(error);
         }
     };
     static displayStudent = async(req,res)=>{
         try{
+            const { name, image } = req.userData;
             const data = await UserModel.find();
             // console.log(data)
-            res.render('admin/displaystudent',{d:data});
+            res.render('admin/displaystudent',{d:data,n:name,i:image});
         }catch (error){
             console.log(error);
         }
@@ -28,16 +30,18 @@ class AdminController{
     };
     static viewStudent = async(req,res)=>{
         try{
+            const { name, image } = req.userData;
             const data = await UserModel.findById(req.params.id)
-            res.render('admin/view', {view:data})
+            res.render('admin/view', {view:data,n:name,i:image})
         }catch (error){
             console.log(error);
         }
     };
     static editStudent = async(req,res)=>{
         try{
+            const { name, image } = req.userData;
             const result = await UserModel.findById(req.params.id)
-            res.render('admin/StudentEdit', {d:result})
+            res.render('admin/StudentEdit', {d:result,n:name,i:image})
         }catch (error){
             console.log(error);
         }
