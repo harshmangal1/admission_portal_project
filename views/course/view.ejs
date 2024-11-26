@@ -1,38 +1,86 @@
-<%-include('../header.ejs')    %>
-<br><br><br><br><br>
+<%- include('../header.ejs') %>
+<style>
+    /* Theme Colors */
+.bg-theme {
+  background-color: #AA181C !important;
+}
 
-<h1 class="text-center bg-info">Display View</h1>
+.text-theme {
+  color: #AA181C !important;
+}
+
+.table-theme {
+  background-color: #AA181C !important;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: #fdfdfd;
+}
+
+.table-striped tbody tr:nth-of-type(even) {
+  background-color: #ffe8e8;
+}
+
+.card-header {
+  border-bottom: 2px solid #AA181C;
+}
+
+.card {
+  border: 1px solid #AA181C;
+}
+
+.table-responsive {
+  overflow-x: auto;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .table {
+    font-size: 0.9rem;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .btn {
+    font-size: 0.8rem;
+    padding: 0.3rem 0.6rem;
+  }
+}
+
+</style>
+
 <div class="container mt-5">
-    <table class="table table-bordered text-center">
-        <tr>
-            <th colspan="5">Course View</th>
-        </tr>
-        <tr>
-            <th>Id</th>
-            <th>name</th>
-            <th>EMail</th>
-            <th>Course</th>
-            
-        </tr>
-        
+  <h1 class="text-center text-white bg-theme py-3 rounded">Display View</h1>
+
+  <div class="card shadow mt-4">
+    <div class="card-header bg-theme text-white text-center">
+      <h3 class="mb-0">Course Details</h3>
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-bordered table-hover text-center align-middle">
+          <thead class="table-theme text-white">
             <tr>
-                <td><%= d._id %></td>
-                <td><%= d.name %></td>
-                <td><%= d.email %></td>
-                <td><%= d.course %></td>
-               
+              <th>ID</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Course</th>
             </tr>
-        
-
-        
-    </table>
-   
-
+          </thead>
+          <tbody>
+            <tr>
+              <td><%= d._id %></td>
+              <td><%= d.name %></td>
+              <td><%= d.email %></td>
+              <td><%= d.course %></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
 </div>
 
-
-
-
-
-
-<%-include('../footer.ejs')    %>
+<%- include('../footer.ejs') %>

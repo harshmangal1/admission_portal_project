@@ -1,88 +1,140 @@
-/* ---------------------------------------------------------------
-                            General
------------------------------------------------------------------- */
-
-body{
-    background: #f7f0bd !important;
-}
-
-button{
-    background: #2a1a6f !important;
-}
-
-/* ---------------------------------------------------------------
-                            #navbar
------------------------------------------------------------------- */
-
-#navbar nav{
-    background: #0000009c !important;
-}
-
-.webViewPosition{
-    text-align: start !important;
-}
-
-/* ---------------------------------------------------------------
-                            #carousel
------------------------------------------------------------------- */
-
-.carouselHeight{
-    height: 100vh;
-}
-
-/* ---------------------------------------------------------------
-                            #login
------------------------------------------------------------------- */
-
-.bglogin{
-    background: #f7f0bd;
-}
-
-/* ---------------------------------------------------------------
-                            #footer
------------------------------------------------------------------- */
-
-#footer
-{
-    background: #2a1a6f;
-}
-
-#social{
-    background: white;
-}
-
-#detail p{
-    text-align: justify;
-}
-
-/* ---------------------------------------------------------------
-                            About
------------------------------------------------------------------- */
-
-.page-title-area {
-    position: relative;
-    z-index: 1;
-}
-
-.paddingValue label
-{
-    padding: 0 !important;
-}
-
-/* ---------------------------------------------------------------
-                            Media Query
------------------------------------------------------------------- */
-
-@media (max-width:992px) {
-    #navbarsExample11{
-        justify-content: center !important;
+/* Sidebar background color */
+.main-sidebar {
+    background-color: #B12029; /* Theme color */
+    color: white;
+    height: 100vh; /* Ensure the sidebar takes full height */
+  }
+  
+  /* Sidebar brand logo */
+  .brand-link {
+    background-color: #780001; /* Adjusted for theme */
+    color: white;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .brand-image {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+  }
+  
+  /* Sidebar user panel styling */
+  .user-panel {
+    background-color: #AA181C; /* Matching theme */
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+  }
+  
+  .user-panel .image img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+  
+  .user-panel .info a {
+    font-size: 16px;
+    color: white;
+    font-weight: 600;
+  }
+  
+  /* Sidebar search form */
+  .form-inline .form-control-sidebar {
+    background-color: #780001; /* Matching the sidebar */
+    color: white;
+    border: none;
+  }
+  
+  .form-control-sidebar::placeholder {
+    color: white;
+  }
+  
+  .btn-sidebar {
+    background-color: #B12029; /* Matching theme */
+    color: white;
+  }
+  
+  /* Sidebar Menu */
+  .nav-sidebar {
+    padding-left: 0;
+  }
+  
+  .nav-item {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .nav-link {
+    font-size: 16px;
+    color: white;
+    padding: 15px;
+  }
+  
+  .nav-link:hover {
+    background-color: #AA181C; /* Hover color */
+    border-radius: 4px;
+  }
+  
+  .nav-icon {
+    margin-right: 10px;
+  }
+  
+  .nav-treeview .nav-link {
+    padding-left: 30px;
+  }
+  
+  .nav-link.active {
+    background-color: #780001; /* Active link color */
+    font-weight: bold;
+  }
+  
+  .nav-link.active:hover {
+    background-color: #B12029;
+  }
+  
+  /* Responsive Sidebar */
+  @media (max-width: 768px) {
+    .main-sidebar {
+      position: absolute;
+      width: 250px;
+      top: 0;
+      left: -250px;
+      transition: 0.3s;
     }
-
-    .mobileViewButton{
-        background: white !important;
-        margin-bottom: 2rem;
+  
+    .main-sidebar.show {
+      left: 0;
     }
-}
-
-
-
+  
+    .brand-link {
+      display: flex;
+      justify-content: center;
+    }
+  
+    .brand-image {
+      width: 40px;
+      height: 40px;
+    }
+  
+    .user-panel .image img {
+      width: 40px;
+      height: 40px;
+    }
+  
+    .nav-link {
+      font-size: 14px;
+      padding: 10px;
+    }
+  }
+  
+  @media (max-width: 992px) {
+    .main-sidebar {
+      width: 220px;
+    }
+  
+    .nav-link {
+      font-size: 15px;
+      padding: 12px;
+    }
+  }
+  

@@ -1,63 +1,54 @@
 <%- include('./header.ejs') %>
+<style>
+  .btn-custom {
+    background-color: #AA181C;
+    color: white;
+    border: none;
+  }
+
+  .btn-custom:hover {
+    background-color: #8c151a;
+    color: white;
+  }
+  .btn-custom-close {
+    background-color: #AA181C;
+    border-radius: 50%;
+    border: none;
+    color: white;
+    padding: 0.4rem;
+    font-size: 1.2rem;
+    line-height: 1;
+  }
+
+  .btn-custom-close:hover {
+    background-color: #8c151a;
+  }
+</style>
 
 <!-- carousel -->
 <section id="carousel">
   <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel">
-    <!-- <div class="carousel-indicators">
-            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active"
-                aria-label="Slide 1" aria-current="true"></button>
-            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"
-                class=""></button>
-            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"
-                class=""></button>
-        </div> -->
-
     <div class="carousel-inner">
       <!-- item-1 -->
       <div class="carousel-item active" data-bs-interval="4000">
-        <img
-          class="carouselHeight"
-          src="./Images/CampusImage-1.avif"
-          alt="Campus Image-1"
-          width="100%"
-        />
+        <img class="carouselHeight" src="./Images/CampusImage-1.avif" alt="Campus Image-1" width="100%" />
       </div>
 
       <!-- item-2 -->
       <div class="carousel-item" data-bs-interval="2000">
-        <img
-          class="carouselHeight"
-          src="./Images/CampusImage-2.avif"
-          alt="Campus Image-2"
-          width="100%"
-        />
+        <img class="carouselHeight" src="./Images/CampusImage-2.avif" alt="Campus Image-2" width="100%" />
       </div>
 
       <!-- item-3 -->
       <div class="carousel-item" data-bs-interval="2000">
-        <img
-          class="carouselHeight"
-          src="./Images/CampusImage-3.jpeg"
-          alt="Campus Image-3"
-          width="100%"
-        />
+        <img class="carouselHeight" src="./Images/CampusImage-3.jpeg" alt="Campus Image-3" width="100%" />
       </div>
     </div>
-    <button
-      class="carousel-control-prev"
-      type="button"
-      data-bs-target="#myCarousel"
-      data-bs-slide="prev"
-    >
+    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Previous</span>
     </button>
-    <button
-      class="carousel-control-next"
-      type="button"
-      data-bs-target="#myCarousel"
-      data-bs-slide="next"
-    >
+    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Next</span>
     </button>
@@ -70,10 +61,8 @@
   <section class="pt-5 text-center container">
     <div class="row py-lg-5">
       <div class="col-lg-6 col-md-8 mx-auto">
-        <h1 class="fw-light">Welcome User</h1>
-        <p class="lead text-body-secondary">
-          MAHARANA PRATAP COLLEGE OF TECHNOLOGY, GWALIOR
-        </p>
+        <h1 class="fw-light">Welcome To</h1>
+        <p class="lead text-body-secondary">ITM UNIVERSITY, GWALIOR</p>
       </div>
     </div>
   </section>
@@ -82,37 +71,25 @@
   <div class="container" id="detail">
     <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
       <div class="col">
-        <div
-          class="card card-cover h-100 p-5 overflow-hidden text-bg-white rounded-4 shadow-lg"
-        >
-          <p class="fw-light text-dark tmy-auto">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste,
-            amet? Quam obcaecati dolore excepturi culpa est, sit dicta vitae
-            eligendi deserunt autem nemo placeat, iusto id ipsa ex ut expedita?
+        <div class="card card-cover h-100 p-5 overflow-hidden text-bg-white rounded-4 shadow-lg">
+          <p class="fw-light text-dark my-auto">
+            ITM University Gwalior offers cutting-edge programs designed to prepare students for the challenges of the modern world. Our focus on practical knowledge, research, and innovation empowers students to excel in their chosen fields.
           </p>
         </div>
       </div>
 
       <div class="col">
-        <div
-          class="card card-cover h-100 p-5 overflow-hidden text-bg-white rounded-4 shadow-lg"
-        >
+        <div class="card card-cover h-100 p-5 overflow-hidden text-bg-white rounded-4 shadow-lg">
           <p class="fw-light text-dark my-auto">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste,
-            amet? Quam obcaecati dolore excepturi culpa est, sit dicta vitae
-            eligendi deserunt autem nemo placeat, iusto id ipsa ex ut expedita?
+            We provide a diverse range of undergraduate, postgraduate, and doctoral programs in various disciplines. At ITM University, you will find an environment that encourages intellectual curiosity, leadership, and global awareness.
           </p>
         </div>
       </div>
 
       <div class="col">
-        <div
-          class="card card-cover h-100 p-5 overflow-hidden text-bg-white rounded-4 shadow-lg"
-        >
+        <div class="card card-cover h-100 p-5 overflow-hidden text-bg-white rounded-4 shadow-lg">
           <p class="fw-light text-dark my-auto">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste,
-            amet? Quam obcaecati dolore excepturi culpa est, sit dicta vitae
-            eligendi deserunt autem nemo placeat, iusto id ipsa ex ut expedita?
+            Our world-class infrastructure, experienced faculty, and state-of-the-art laboratories make ITM University a perfect place for academic and professional growth. Join us today and be part of a legacy of excellence.
           </p>
         </div>
       </div>
@@ -120,35 +97,30 @@
   </div>
   <!-- End Detail -->
 
+  <!-- Courses Section -->
   <div class="album py-5">
     <div class="container">
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
         <!-- card-1 -->
         <div class="col">
           <div class="card shadow-sm">
-            <img
-              class="rounded w-100"
-              src="./Images/Course-1.jpeg"
-              alt="Course-1"
-              height="200rem"
-            />
+            <img class="rounded w-100" src="./Images/Course-1.jpeg" alt="Course-1" height="200rem" />
             <div class="card-body text-center">
               <h2>B.Tech</h2>
               <p class="card-text">
                 B.Tech is a professional undergraduate engineering degree
               </p>
               <% if(btech){ %>
-              <a href="/CourseDisplay" class="btn btn-primary">Course Display</a>
-              <% }else{ %>
+              <a href="/CourseDisplay" class="btn btn-custom">Course Display</a>
+              <% } else { %>
               <button
                 type="button"
-                class="btn btn-primary"
+                class="btn btn-custom"
                 data-bs-toggle="modal"
                 data-bs-target="#btech"
               >
                 Register
               </button>
-
               <% } %>
             </div>
           </div>
@@ -157,12 +129,7 @@
         <!-- card-2 -->
         <div class="col">
           <div class="card shadow-sm">
-            <img
-              class="rounded w-100"
-              src="./Images/Course-2.jpeg"
-              alt="Course-2"
-              height="200rem"
-            />
+            <img class="rounded w-100" src="./Images/Course-2.jpeg" alt="Course-2" height="200rem" />
             <div class="card-body text-center">
               <h2>BCA</h2>
               <p class="card-text">
@@ -170,7 +137,7 @@
               </p>
               <button
                 type="button"
-                class="btn btn-primary"
+                class="btn btn-custom"
                 data-bs-toggle="modal"
                 data-bs-target="#bca"
               >
@@ -183,21 +150,15 @@
         <!-- card-3 -->
         <div class="col">
           <div class="card shadow-sm">
-            <img
-              class="rounded w-100"
-              src="./Images/Course-3.jpeg"
-              alt="Course-3"
-              height="200rem"
-            />
+            <img class="rounded w-100" src="./Images/Course-3.jpeg" alt="Course-3" height="200rem" />
             <div class="card-body text-center">
               <h2>MCA</h2>
               <p class="card-text">
-                MCA is a professional post-graduation degree in Computer
-                Application
+                MCA is a professional post-graduation degree in Computer Application
               </p>
               <button
                 type="button"
-                class="btn btn-primary"
+                class="btn btn-custom"
                 data-bs-toggle="modal"
                 data-bs-target="#mca"
               >
@@ -209,6 +170,7 @@
       </div>
     </div>
   </div>
+  <!-- End of Course Section -->
 </section>
 <!-- End Courses -->
 <!-- java script link -->
@@ -227,7 +189,7 @@
         <h1 class="modal-title fs-5" id="exampleModalLabel">Course Register</h1>
         <button
           type="button"
-          class="btn-close"
+          class="btn-close btn-custom-close btn-custom-close:hover"
           data-bs-dismiss="modal"
           aria-label="Close"
         ></button>
@@ -287,13 +249,14 @@
               name="course"
             />
           </div>
-          <button type="submit" class="btn btn-success">Submit</button>
+          <button type="submit" class="btn btn-custom ">Submit</button>
         </form>
       </div>
     </div>
   </div>
 </div>
 <!--End Btech Modal -->
+
 
 <!--BCA Modal -->
 <div

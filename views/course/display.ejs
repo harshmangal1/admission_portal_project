@@ -1,29 +1,92 @@
-<%-include('../header.ejs')    %>
+<%- include('../header.ejs') %>
+<style>
+    /* Theme Colors */
+.bg-theme {
+  background-color: #AA181C !important;
+}
 
-<br>
+.text-theme {
+  color: #AA181C !important;
+}
 
-<h1 class="text-center bg-info mt-5">Display Course</h1>
+.table-theme {
+  background-color: #AA181C !important;
+}
+
+.btn-theme-light {
+  background-color: #AA181C !important;
+  color: #ffffff !important;
+  border: none;
+}
+
+.btn-theme-light:hover {
+  background-color: #920018 !important;
+  color: #ffffff !important;
+}
+
+/* Table Styling */
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: #fdfdfd;
+}
+
+.table-striped tbody tr:nth-of-type(even) {
+  background-color: #ffe8e8;
+}
+
+.card-header {
+  border-bottom: 2px solid #AA181C;
+}
+
+.card {
+  border: 1px solid #AA181C;
+}
+
+.table-responsive {
+  overflow-x: auto;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .table {
+    font-size: 0.9rem;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .btn {
+    font-size: 0.8rem;
+    padding: 0.3rem 0.6rem;
+  }
+}
+
+</style>
 
 <div class="container mt-5">
-    
-     
+  <h1 class="text-center text-white bg-theme py-3 rounded">Display Course</h1>
 
-    <table class="table table-bordered text-center">
-        <tr>
-            <th colspan="7">Course Dispaly</th>
-            
-        </tr>
-        <tr>
-            <th>Id</th>
-            <th>name</th>
-            <th>EMail</th>
-            <th>Course</th>
-            <th>Status</th>
-            <th>Comment</th>
-            <th>Action</th>
-        </tr>
-        <% c.forEach((item)=>{  %>
+  <div class="card shadow mt-4">
+    <div class="card-header bg-theme text-white text-center">
+      <h3 class="mb-0">Course Display</h3>
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-bordered table-hover text-center align-middle">
+          <thead class="table-theme text-white">
             <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Course</th>
+              <th>Status</th>
+              <th>Comment</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% c.forEach((item) => { %>
+              <tr>
                 <td><%= item._id %></td>
                 <td><%= item.name %></td>
                 <td><%= item.email %></td>
@@ -31,22 +94,17 @@
                 <td><%= item.status %></td>
                 <td><%= item.comment %></td>
                 <td>
-                    <a href="/courseView/<%= item._id %>" class="btn btn-primary">View</a>
-                    <a href="/courseEdit/<%= item._id %>" class="btn btn-info">Edit</a>
-                    <a href="/courseDelete/<%= item._id %>" class="btn btn-danger">Delete</a>
+                  <a href="/courseView/<%= item._id %>" class="btn btn-theme-light btn-sm">View</a>
+                  <a href="/courseEdit/<%= item._id %>" class="btn btn-info btn-sm">Edit</a>
+                  <a href="/courseDelete/<%= item._id %>" class="btn btn-danger btn-sm">Delete</a>
                 </td>
-            </tr>
-        <%  }) %>
-
-        
-    </table>
-   
-
+              </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
 </div>
 
-
-
-
-
-
-<%-include('../footer.ejs')    %>
+<%- include('../footer.ejs') %>

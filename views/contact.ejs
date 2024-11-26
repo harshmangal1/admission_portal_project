@@ -1,87 +1,129 @@
 <%- include('./header.ejs') %>
+<style>
+    /* Contact Us section background */
+#contact {
+    background: linear-gradient(to right, #AA181C, #BB2A3B);
+}
 
-    <!-- Contact Us -->
-    <section id="contact">
-        <div class="container">
-            <div class="py-5 text-center">
-                <h2 class="mt-5 pt-5">Know More</h2>
-                <p class="lead">We are available to assist you anytime.</p>
-            </div>
+/* Text Color */
+.text-white {
+    color: #ffffff !important;
+}
 
-            <div class="row g-5">
-                <div class="col-md-5 col-lg-4 order-md-last">
-                    <h4 class="d-flex justify-content-between align-items-center mb-3">
-                        <span>Location</span>
-                    </h4>
+/* Form button with theme colors */
+.btn-theme {
+    background-color: #AA181C;
+    color: #fff;
+    border: 1px solid #880015;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-theme:hover {
+    background-color: #880015;
+    transform: translateY(-2px);
+}
+
+/* Box Shadow for Location and Form */
+.border {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.shadow-lg {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Form Input fields */
+.form-control {
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    padding: 1rem;
+}
+
+/* Make form fields responsive */
+@media (max-width: 768px) {
+    #contact {
+        padding: 3rem 1rem;
+    }
+
+    .container {
+        max-width: 100%;
+    }
+}
+
+</style>
+
+<!-- Contact Us -->
+<section id="contact" class="py-5" style="background-color: #B12029; color: white;">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="mt-5 pt-5 text-uppercase">Know More</h2>
+            <p class="lead">We are available to assist you anytime.</p>
+        </div>
+
+        <div class="row g-5">
+            <!-- Location -->
+            <div class="col-md-5 col-lg-4">
+                <h4 class="text-uppercase">Location</h4>
+                <div class="border rounded shadow-lg p-2 bg-light">
+                    <!-- Updated Google Map iframe -->
                     <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d114566.12366376573!2d78.05655149726559!3d26.190452499999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3976c38cbfab5ebd%3A0x32bb0d277b5bc9d8!2sMaharana%20Pratap%20College%20of%20Technology%2C%20Gwalior!5e0!3m2!1sen!2sin!4v1698776631524!5m2!1sen!2sin"
-                        width="100%" height="50%" style="border:0;" allowfullscreen="" loading="lazy"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3581.807359495287!2d78.20816520000001!3d26.137823400000013!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3976c497178e8281%3A0x3a555c950be477e8!2sITM%20University%20Gwalior!5e0!3m2!1sen!2sin!4v1732525517524!5m2!1sen!2sin"
+                        width="100%" height="300px" style="border:0;" allowfullscreen="" loading="lazy"
                         referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
+            </div>
 
-                <div class="col-md-7 col-lg-8">
-                    <h4 class="mb-3">Contact Us!</h4>
-                    <form class="needs-validation" novalidate="">
-                        <div class="row g-3 paddingValue">
-                            <div class="col-sm-6">
-                                <label for="firstName" class="form-label">Full Name</label>
-                                <input type="text" class="form-control" id="fullname" placeholder="your Full Name" value=""
-                                    required="">
-                                <div class="invalid-feedback">
-                                    Valid first name is required.
-                                </div>
-                            </div>
-
-                            
-                            <div class="col-12">
-                                <label for="phone" class="form-label">Phone Number</label>
-                                <div class="input-group has-validation">
-                                    <span class="input-group-text">+91</span>
-                                    <input type="text" class="form-control" id="phone" placeholder="phone"
-                                        required="">
-                                    <div class="invalid-feedback">
-                                        Your username is required.
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-12">
-                                <label for="email" class="form-label">Email <span
-                                        class="text-body-secondary"></span></label>
-                                <input type="email" class="form-control" id="email" placeholder="you@example.com">
-                                <div class="invalid-feedback">
-                                    Please enter a valid email address for shipping updates.
-                                </div>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <label for="message" class="form-label">Message</label>
-                                <input type="text" class="form-control" id="message" placeholder="message" value=""
-                                    required="">
-                                <div class="invalid-feedback">
-                                    please enter a message
-                                </div>
-                            </div>
-                            
-
+            <!-- Contact Form -->
+            <div class="col-md-7 col-lg-8">
+                <h4 class="text-uppercase">Contact Us!</h4>
+                <form action="#" method="post" class="needs-validation" novalidate>
+                    <div class="row g-3">
+                        <div class="col-sm-6">
+                            <label for="fullname" class="form-label">Full Name</label>
+                            <input type="text" class="form-control" id="fullname" placeholder="Your Full Name" required>
+                            <div class="invalid-feedback">Valid name is required.</div>
                         </div>
 
-                        <hr class="my-4">
-
-                        <div class="form-check paddingValue">
-                            <input type="checkbox" class="form-check-input" id="save-info">
-                            <label class="form-check-label" for="save-info">Save this information for next time</label>
-                        </div>
-                        <div>
-                            <button type="submit" class="btn btn-success">Submit</button>
-
+                        <div class="col-sm-6">
+                            <label for="phone" class="form-label">Phone Number</label>
+                            <div class="input-group">
+                                <span class="input-group-text">+91</span>
+                                <input type="text" class="form-control" id="phone" placeholder="Phone" required>
+                                <div class="invalid-feedback">Phone number is required.</div>
+                            </div>
                         </div>
 
-                        </form>
-                </div>
+                        <div class="col-12">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" placeholder="you@example.com" required>
+                            <div class="invalid-feedback">Please enter a valid email address.</div>
+                        </div>
+
+                        <div class="col-12">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea class="form-control" id="message" rows="4" placeholder="Your message here"
+                                required></textarea>
+                            <div class="invalid-feedback">Message is required.</div>
+                        </div>
+                    </div>
+
+                    <div class="form-check mt-3">
+                        <input type="checkbox" class="form-check-input" id="save-info">
+                        <label class="form-check-label" for="save-info">Save this information for next time</label>
+                    </div>
+
+                    <div class="mt-4 text-center">
+                        <button type="submit" class="btn btn-theme w-50">Submit</button>
+                    </div>
+                </form>
             </div>
         </div>
-    </section>
-    <!-- End Contact Us -->
+    </div>
+</section>
+<!-- End Contact Us -->
 
-    <%- include('./footer.ejs') %>
+<%- include('./footer.ejs') %>

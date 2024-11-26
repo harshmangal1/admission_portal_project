@@ -1,8 +1,9 @@
+const CourseModel = require('../../models/course');
 const UserModel = require('../../models/user');
 class AdminController{
     static dashboard = async(req,res)=>{
         try{
-            
+            const { name, image } = req.userData;
             res.render('admin/dashboard',{n:name,i:image});
         }catch (error){
             console.log(error);
@@ -73,5 +74,17 @@ class AdminController{
             console.log(error)
         }
     }
+
+    //course Display
+    static courseDisplay = async(req,res)=>{
+        try{
+            const { name, image } = req.userData;
+            const course = await CourseModel.find();
+            // console.log(data)
+            res.render('admin/courseDisplay',{c:course,n:name,i:image});
+        }catch (error){
+            console.log(error);
+        }
+    };
 }
 module.exports = AdminController

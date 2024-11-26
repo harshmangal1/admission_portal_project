@@ -1,31 +1,24 @@
-<%-include('./header.ejs') %> 
+<%- include('./header.ejs') %>
 <br /><br /><br /><br /><br />
+
 <div class="container">
   <div class="row">
     <div class="col-md-4"></div>
     <div class="col-md-4 text-center">
-      <h2 class="text-center bg-info">Profile</h2>
-      <div class="card">
-        <img src="<%= i.url %>" alt="" width="" style="border-radius: 30px" />
+      <!-- Profile Header with Custom Background Color (#AA181C) -->
+      <h2 class="text-center text-white p-3 rounded" style="background-color: #AA181C;">Profile</h2>
+      
+      <div class="card shadow-lg mb-4" style="border-radius: 15px;">
+        <img src="<%= i.url %>" alt="Profile Image" class="img-fluid rounded-circle" style="width: 150px; height: 150px; object-fit: cover; margin: 0 auto;" />
         <div class="card-body">
-          <h4>Name: <%= n %></h4>
-          <h4>Email: <%= e %></h4>
+          <h4 class="">Name: <%= n %></h4>
+          <h5 class="text-secondary">Email: <%= e %></h5>
           <br />
-          <button
-            data-bs-toggle="modal"
-            data-bs-target="#updateprofile"
-            class="btn btn-primary"
-          >
-            Update profile
-          </button>
-
-          <button
-            data-bs-toggle="modal"
-            data-bs-target="#ChangePassword"
-            class="btn btn-info text-white"
-          >
-            Change Password
-          </button>
+          <!-- Update Profile Button with White Text -->
+          <button data-bs-toggle="modal" data-bs-target="#updateprofile" class="btn btn-theme w-50 mb-2" style="background-color: #B12029; color: white;">Update Profile</button>
+          <br />
+          <!-- Change Password Button -->
+          <button data-bs-toggle="modal" data-bs-target="#ChangePassword" class="btn btn-info w-50 text-white">Change Password</button>
         </div>
         <!--card body end-->
       </div>
@@ -36,111 +29,70 @@
   <!--row end-->
 
   <!--updateProfile Modal -->
-  <div
-    class="modal fade"
-    id="updateprofile"
-    tabindex="-1"
-    aria-labelledby="exampleModalLabel"
-    aria-hidden="true"
-  >
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">
-            Profile Update
-          </h1>
-          <button
-            type="button"
-            class="btn-close"
-            data-bs-dismiss="modal"
-            aria-label="Close"
-          ></button>
-        </div>
-        <div class="modal-body">
-          <form
-            action="/updateProfile"
-            method="post"
-            enctype="multipart/form-data"
-          >
-            <div class="mb-3">
-              <label for="">Name</label>
-              <input
-                type="text"
-                value="<%= n %>"
-                name="name"
-                class="form-control"
-              />
-            </div>
-            <div class="mb-3">
-              <label for="">Email</label>
-              <input
-                type="text"
-                value="<%= e %>"
-                name="email"
-                class="form-control"
-              />
-            </div>
-            <div class="mb-3">
-              <label for="">Image</label>
-              <input type="file" name="image" class="form-control" />
-              <img src="<%= i.url %>" alt="" width="50" />
-            </div>
-
-            <button type="submit" class="btn btn-success">
-              Update Profile
-            </button>
-          </form>
-        </div>
+<div class="modal fade" id="updateprofile" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Modal Header with Custom Background Color (#AA181C) -->
+      <div class="modal-header" style="background-color: #AA181C;">
+        <h5 class="modal-title text-white" id="exampleModalLabel">Profile Update</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="/updateProfile" method="post" enctype="multipart/form-data">
+          <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" value="<%= n %>" name="name" class="form-control" required />
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" value="<%= e %>" name="email" class="form-control" required />
+          </div>
+          <div class="mb-3">
+            <label for="image" class="form-label">Image</label>
+            <input type="file" name="image" class="form-control" />
+            <img src="<%= i.url %>" alt="Profile Image" width="50" class="mt-2" />
+          </div>
+          <button type="submit" class="btn btn-success w-100">Update Profile</button>
+        </form>
       </div>
     </div>
   </div>
-  <!--End updateProfile Modal -->
+</div>
+<!--End updateProfile Modal -->
+
 
   <!--Change Password Modal -->
-  <div
-    class="modal fade"
-    id="ChangePassword"
-    tabindex="-1"
-    aria-labelledby="exampleModalLabel"
-    aria-hidden="true"
-  >
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">
-            Change Password
-          </h1>
-          <button
-            type="button"
-            class="btn-close"
-            data-bs-dismiss="modal"
-            aria-label="Close"
-          ></button>
-        </div>
-        <div class="modal-body">
-          <form action="/changePassword" method="post">
-            <div class="mb-3">
-              <label for="">Old Password</label>
-              <input type="text" name="op" class="form-control" />
-            </div>
-            <div class="mb-3">
-              <label for="">New Password</label>
-              <input type="password" name="np" class="form-control" />
-            </div>
-            <div class="mb-3">
-              <label for="">Confirm Password</label>
-              <input type="password" name="cp" class="form-control" />
-            </div>
-            <button type="submit" class="btn btn-success">
-              Change Password
-            </button>
-          </form>
-        </div>
+<div class="modal fade" id="ChangePassword" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Modal Header with Custom Background Color (#AA181C) -->
+      <div class="modal-header" style="background-color: #AA181C;">
+        <h5 class="modal-title text-white" id="exampleModalLabel">Change Password</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="/changePassword" method="post">
+          <div class="mb-3">
+            <label for="op" class="form-label">Old Password</label>
+            <input type="password" name="op" class="form-control" required />
+          </div>
+          <div class="mb-3">
+            <label for="np" class="form-label">New Password</label>
+            <input type="password" name="np" class="form-control" required />
+          </div>
+          <div class="mb-3">
+            <label for="cp" class="form-label">Confirm Password</label>
+            <input type="password" name="cp" class="form-control" required />
+          </div>
+          <button type="submit" class="btn btn-success w-100">Change Password</button>
+        </form>
       </div>
     </div>
   </div>
-  <!--End Change Password Modal -->
+</div>
+<!--End Change Password Modal -->
+
 </div>
 <!--container end-->
 
-<%-include('./footer.ejs') %>
+<%- include('./footer.ejs') %>

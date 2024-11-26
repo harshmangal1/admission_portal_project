@@ -31,6 +31,8 @@ route.get('/admin/studentDisplay',checkAuth,AdminController.displayStudent);
 route.get('/admin/deleteStudent/:id',checkAuth,AdminController.deleteStudent);
 route.get('/admin/studentView/:id',checkAuth,AdminController.viewStudent);
 route.get('/admin/StudentEdit/:id',checkAuth,AdminController.updateStudent);
+//course display admin
+route.get('n',checkAuth,AdminController.courseDisplay);
 
 //add student
 
