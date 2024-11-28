@@ -32,7 +32,10 @@ route.get('/admin/deleteStudent/:id',checkAuth,AdminController.deleteStudent);
 route.get('/admin/studentView/:id',checkAuth,AdminController.viewStudent);
 route.get('/admin/StudentEdit/:id',checkAuth,AdminController.updateStudent);
 //course display admin
-route.get('n',checkAuth,AdminController.courseDisplay);
+route.get('/admin/courseDisplay',checkAuth,AdminController.courseDisplay);
+route.post('/admin/update_status/:id',checkAuth,AdminController.update_status);
+
+
 
 //add student
 
