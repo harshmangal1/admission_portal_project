@@ -4,6 +4,8 @@ const cloudinary = require("cloudinary");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const CourseModel = require("../models/course");
+const randomstring = require('randomstring')
+const nodemailer = require('nodemailer')
 
 //setup
 cloudinary.config({
@@ -70,7 +72,7 @@ class FrontController {
   // insert Data
   static insertStudent = async (req, res) => {
     try {
-      console.log(req.body);
+      // console.log(req.body);
       const { name, email, password, confirmpasword } = req.body;
       if (!name || !email || !password || !confirmpasword) {
         req.flash("error", "All Fields are Required.");
@@ -100,10 +102,60 @@ class FrontController {
           url: imageUpload.secure_url,
         },
       });
-      req.flash("success", "Register Secure ! plz Login");
-      res.redirect("/");
+      if(data){
+        var token = jwt.sign({ ID: data.id }, "hars12345");
+        res.cookie("token", token);
+        this.sendVerifymail(name,email,data.id)
+        req.flash('success','Your Registration Success,Plz verify mail')
+        res.redirect('/register')
+      }else{
+        req.flash('error','error found')
+        res.redirect('/register')
+      }
+      // console.log(data)
     } catch (error) {
       console.log(error);
+    }
+  };
+  static sendVerifymail = async (name, email, user_id) => {
+    //console.log(name, email, user_id);
+    // connenct with the smtp server
+
+    let transporter = await nodemailer.createTransport({
+      host: "smtp.gmail.com",
+      port: 587,
+
+      auth: {
+        user: "deewan.harsh001@gmail.com",
+        pass: "egdvgxwfdqnccsyb",
+      },
+    });
+    let info = await transporter.sendMail({
+      from: "test@gmail.com", // sender address
+      to: email, // list of receivers
+      subject: "For Verification mail", // Subject line
+      text: "heelo", // plain text body
+      html:
+        "<p>Hii " +
+        name +
+        ',Please click here to <a href="http://localhost:3000/verify?id=' +
+        user_id +
+        '">Verify</a>Your mail</p>.',
+    });
+    //console.log(info);
+  };
+
+  static verifyMail = async (req, res) => {
+    try{
+      const updateinfo = await UserModel.findByIdAndUpdate
+      (req.query.id,{
+        is_verify:1,
+      });
+      if (updateinfo){
+        res.redirect('/home');
+      }
+    }catch(error){
+      console.log(error)
     }
   };
 
@@ -116,28 +168,28 @@ class FrontController {
           const isMatched = await bcrypt.compare(password, user.password);
           //console.log(isMatched);
           if (isMatched) {
-            if (user.role == "admin") {
+            if (user.role == "admin" && user.is_verify == 1) {
               // create token
               var token = jwt.sign({ ID: user.id }, "hars12345");
               // console.log(token)
               res.cookie("token", token);
-
               res.redirect("/admin/dashboard");
-            }
-            if (user.role == "Student") {
+            }else if (user.role == "Student" && user.is_verify == 1) {
               // create token
               var token = jwt.sign({ ID: user.id }, "hars12345");
               // console.log(token)
               res.cookie("token", token);
-
               res.redirect("/home");
+            }else{
+              req.flash('error',"Please verify your email")
+              res.redirect('/');
             }
           } else {
-            req.flash("error", "Email or password is not valid");
+            req.flash("error", "Email or Password is not match");
             return res.redirect("/");
           }
         } else {
-          req.flash("error", "You are not a registered user");
+          req.flash("error", "You are not registered user");
           return res.redirect("/");
         }
       } else {
@@ -241,5 +293,85 @@ class FrontController {
       console.log(error);
     }
   };
+
+  static forgetPasswordVerify = async (req, res) => {
+    try {
+      const { email } = req.body;
+      const userData = await UserModel.findOne({ email: email });
+      //console.log(userData)
+      if (userData) {
+        const randomString = randomstring.generate();
+        await UserModel.updateOne(
+          { email: email },
+          { $set: { token: randomString } }
+        );
+        this.sendEmail(userData.name, userData.email, randomString);
+        req.flash("success", "Plz Check Your mail to reset Your Password!");
+        res.redirect("/");
+      } else {
+        req.flash("error", "You are not a registered Email");
+        res.redirect("/");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  static sendEmail = async (name, email, token) => {
+    // console.log(name,email,status,comment)
+    // connenct with the smtp server
+
+    let transporter = await nodemailer.createTransport({
+      host: "smtp.gmail.com",
+      port: 587,
+
+      auth: {
+        user: "deewan.harsh001@gmail.com",
+        pass: "egdvgxwfdqnccsyb",
+      },
+    });
+    let info = await transporter.sendMail({
+      from: "test@gmail.com", // sender address
+      to: email, // list of receivers
+      subject: "Reset Password", // Subject line
+      text: "heelo", // plain text body
+      html:
+        "<p>Hii " +
+        name +
+        ',Please click here to <a href="http://localhost:3000/reset-password?token=' +
+        token +
+        '">Reset</a> Your Password.',
+    });
+  };
+  
+  static reset_Password = async (req, res) => {
+    try {
+      const token = req.query.token;
+      const tokenData = await UserModel.findOne({ token: token });
+      if (tokenData) {
+        res.render("reset-password", { user_id: tokenData._id });
+      } else {
+        res.render("404");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  static reset_Password1 = async (req, res) => {
+    try {
+      const { password, user_id } = req.body;
+      const newHashPassword = await bcrypt.hash(password, 10);
+      await UserModel.findByIdAndUpdate(user_id, {
+        password: newHashPassword,
+        token: "",
+      });
+      req.flash("success", "Reset Password Updated successfully ");
+      res.redirect("/");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
 }
 module.exports = FrontController;

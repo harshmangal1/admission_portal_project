@@ -25,7 +25,14 @@ const UserSchema = mongoose.Schema({
         url :{
             type:String,
             required:true,
-        },
+        }
+    },
+    token:{
+        type:String
+    },
+    is_verify:{
+        type:String,
+        default:0
     }
 
 },{timestamps:true})

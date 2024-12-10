@@ -82,6 +82,12 @@
                             </div>
                             <% } %>
 
+                            <% if(msg.length > 0) { %>
+                                <div class="alert alert-success">
+                                    <%= msg %>
+                                </div>
+                                <% } %>
+
                             <!-- User Name -->
                             <div class="mb-4">
                                 <label for="name" class="form-label">Name</label>
