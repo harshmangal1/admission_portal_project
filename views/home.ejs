@@ -1,7 +1,7 @@
 <%- include('./header.ejs') %>
 <style>
   .btn-custom {
-    background-color: #AA181C;
+    background-color: #aa181c;
     color: white;
     border: none;
   }
@@ -11,7 +11,7 @@
     color: white;
   }
   .btn-custom-close {
-    background-color: #AA181C;
+    background-color: #aa181c;
     border-radius: 50%;
     border: none;
     color: white;
@@ -31,24 +31,49 @@
     <div class="carousel-inner">
       <!-- item-1 -->
       <div class="carousel-item active" data-bs-interval="4000">
-        <img class="carouselHeight" src="./Images/CampusImage-1.avif" alt="Campus Image-1" width="100%" />
+        <img
+          class="carouselHeight"
+          src="./Images/CampusImage-1.avif"
+          alt="Campus Image-1"
+          width="100%"
+        />
       </div>
 
       <!-- item-2 -->
       <div class="carousel-item" data-bs-interval="2000">
-        <img class="carouselHeight" src="./Images/CampusImage-2.avif" alt="Campus Image-2" width="100%" />
+        <img
+          class="carouselHeight"
+          src="./Images/CampusImage-2.avif"
+          alt="Campus Image-2"
+          width="100%"
+        />
       </div>
 
       <!-- item-3 -->
       <div class="carousel-item" data-bs-interval="2000">
-        <img class="carouselHeight" src="./Images/CampusImage-3.jpeg" alt="Campus Image-3" width="100%" />
+        <img
+          class="carouselHeight"
+          src="./Images/CampusImage-3.jpeg"
+          alt="Campus Image-3"
+          width="100%"
+        />
       </div>
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+    <button
+      class="carousel-control-prev"
+      type="button"
+      data-bs-target="#myCarousel"
+      data-bs-slide="prev"
+    >
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Previous</span>
     </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+    <button
+      class="carousel-control-next"
+      type="button"
+      data-bs-target="#myCarousel"
+      data-bs-slide="next"
+    >
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Next</span>
     </button>
@@ -71,25 +96,40 @@
   <div class="container" id="detail">
     <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
       <div class="col">
-        <div class="card card-cover h-100 p-5 overflow-hidden text-bg-white rounded-4 shadow-lg">
+        <div
+          class="card card-cover h-100 p-5 overflow-hidden text-bg-white rounded-4 shadow-lg"
+        >
           <p class="fw-light text-dark my-auto">
-            ITM University Gwalior offers cutting-edge programs designed to prepare students for the challenges of the modern world. Our focus on practical knowledge, research, and innovation empowers students to excel in their chosen fields.
+            ITM University Gwalior offers cutting-edge programs designed to
+            prepare students for the challenges of the modern world. Our focus
+            on practical knowledge, research, and innovation empowers students
+            to excel in their chosen fields.
           </p>
         </div>
       </div>
 
       <div class="col">
-        <div class="card card-cover h-100 p-5 overflow-hidden text-bg-white rounded-4 shadow-lg">
+        <div
+          class="card card-cover h-100 p-5 overflow-hidden text-bg-white rounded-4 shadow-lg"
+        >
           <p class="fw-light text-dark my-auto">
-            We provide a diverse range of undergraduate, postgraduate, and doctoral programs in various disciplines. At ITM University, you will find an environment that encourages intellectual curiosity, leadership, and global awareness.
+            We provide a diverse range of undergraduate, postgraduate, and
+            doctoral programs in various disciplines. At ITM University, you
+            will find an environment that encourages intellectual curiosity,
+            leadership, and global awareness.
           </p>
         </div>
       </div>
 
       <div class="col">
-        <div class="card card-cover h-100 p-5 overflow-hidden text-bg-white rounded-4 shadow-lg">
+        <div
+          class="card card-cover h-100 p-5 overflow-hidden text-bg-white rounded-4 shadow-lg"
+        >
           <p class="fw-light text-dark my-auto">
-            Our world-class infrastructure, experienced faculty, and state-of-the-art laboratories make ITM University a perfect place for academic and professional growth. Join us today and be part of a legacy of excellence.
+            Our world-class infrastructure, experienced faculty, and
+            state-of-the-art laboratories make ITM University a perfect place
+            for academic and professional growth. Join us today and be part of a
+            legacy of excellence.
           </p>
         </div>
       </div>
@@ -104,7 +144,12 @@
         <!-- card-1 -->
         <div class="col">
           <div class="card shadow-sm">
-            <img class="rounded w-100" src="./Images/Course-1.jpeg" alt="Course-1" height="200rem" />
+            <img
+              class="rounded w-100"
+              src="./Images/Course-1.jpeg"
+              alt="Course-1"
+              height="200rem"
+            />
             <div class="card-body text-center">
               <h2>B.Tech</h2>
               <p class="card-text">
@@ -129,12 +174,20 @@
         <!-- card-2 -->
         <div class="col">
           <div class="card shadow-sm">
-            <img class="rounded w-100" src="./Images/Course-2.jpeg" alt="Course-2" height="200rem" />
+            <img
+              class="rounded w-100"
+              src="./Images/Course-2.jpeg"
+              alt="Course-2"
+              height="200rem"
+            />
             <div class="card-body text-center">
               <h2>BCA</h2>
               <p class="card-text">
                 BCA is a three-year Bachelor's Degree in Computer Application
               </p>
+              <% if(bca){ %>
+              <a href="/CourseDisplay" class="btn btn-custom">Course Display</a>
+              <% } else { %>
               <button
                 type="button"
                 class="btn btn-custom"
@@ -143,6 +196,7 @@
               >
                 Register
               </button>
+              <% } %>
             </div>
           </div>
         </div>
@@ -150,12 +204,21 @@
         <!-- card-3 -->
         <div class="col">
           <div class="card shadow-sm">
-            <img class="rounded w-100" src="./Images/Course-3.jpeg" alt="Course-3" height="200rem" />
+            <img
+              class="rounded w-100"
+              src="./Images/Course-3.jpeg"
+              alt="Course-3"
+              height="200rem"
+            />
             <div class="card-body text-center">
               <h2>MCA</h2>
               <p class="card-text">
-                MCA is a professional post-graduation degree in Computer Application
+                MCA is a professional post-graduation degree in Computer
+                Application
               </p>
+              <% if(mca){ %>
+              <a href="/CourseDisplay" class="btn btn-custom">Course Display</a>
+              <% } else { %>
               <button
                 type="button"
                 class="btn btn-custom"
@@ -164,6 +227,7 @@
               >
                 Register
               </button>
+              <% } %>
             </div>
           </div>
         </div>
@@ -249,14 +313,13 @@
               name="course"
             />
           </div>
-          <button type="submit" class="btn btn-custom ">Submit</button>
+          <button type="submit" class="btn btn-custom">Submit</button>
         </form>
       </div>
     </div>
   </div>
 </div>
 <!--End Btech Modal -->
-
 
 <!--BCA Modal -->
 <div
@@ -332,7 +395,7 @@
               name="course"
             />
           </div>
-          <button type="submit" class="btn btn-success">Submit</button>
+          <button type="submit" class="btn btn-custom">Submit</button>
         </form>
       </div>
     </div>
@@ -414,7 +477,7 @@
               name="course"
             />
           </div>
-          <button type="submit" class="btn btn-success">Submit</button>
+          <button type="submit" class="btn btn-custom">Submit</button>
         </form>
       </div>
     </div>

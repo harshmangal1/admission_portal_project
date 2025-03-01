@@ -51,18 +51,15 @@ class AdminController {
   };
   static updateStudent = async (req, res) => {
     try {
-      const id = req.params.id;
-      const { name, email, password,} = req.body;
-      await UserModel.findByIdAndUpdate(id, {
-        name,
-        email,
-        password,
-      });
-      res.redirect("admin/displaystudent");
+        const id = req.params.id;
+        const { name, email, password } = req.body;
+        await UserModel.findByIdAndUpdate(id, { name, email, password });
+        res.redirect("/admin/displaystudent"); // Correct path to avoid issues
     } catch (error) {
-      console.log(error);
+        console.log(error);
+        res.status(500).send('Error updating student');
     }
-  };
+};
 
   static StudentInsert = async (req, res) => {
     try {

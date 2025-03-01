@@ -21,35 +21,32 @@
 
     <!-- Custom Styles -->
     <style>
-      /* Navbar background color */
+      /* Navbar Styling */
       nav.navbar {
-        background-color: #780001 !important; /* Change navbar background color to #780001 */
+        background-color: rgba(0, 0, 0, 0.6) !important; /* Semi-transparent background */
+      }
+
+      /* Logo Styling */
+      .navbar-brand img {
+        display: inline-block;
+        width: 150px; /* Increased width */
+        height: auto; /* Adjust height proportionally */
+        border-radius: 0; /* Removed rounding */
+        object-fit: contain; /* Ensures the logo fits within the dimensions without distortion */
       }
 
       /* Navbar links styling */
       .navbar-nav .nav-link {
         color: #ffffff !important; /* White text for better visibility */
-        font-size: 16px; /* Normal font size */
+        font-size: 16px; /* Standard font size */
+        font-weight: 500; /* Slightly bold for clear readability */
       }
 
       .navbar-nav .nav-link:hover {
         color: #f8d7da !important; /* Light pink on hover */
       }
 
-      /* Logout button styling */
-      .btn-logout {
-        background-color: #f5f5f5 !important; /* Light gray background */
-        color: #780001 !important; /* Text color matching navbar */
-        border: 1px solid #780001 !important; /* Border matching navbar */
-        font-size: 16px; /* Normal font size */
-      }
-
-      .btn-logout:hover {
-        background-color: #ffffff !important; /* White on hover */
-        color: #780001 !important;
-      }
-
-      /* Ensures proper visibility on mobile */
+      /* Mobile Styling */
       @media (max-width: 768px) {
         .navbar-collapse {
           display: flex;
@@ -65,66 +62,61 @@
   <body>
     <!-- Navbar -->
     <section id="navbar" class="fixed-top">
-      <nav
-        class="navbar navbar-expand-lg navbar-light rounded"
-        aria-label="Thirteenth navbar example"
-      >
+      <nav class="navbar navbar-expand-lg bg-body-tertiary rounded" aria-label="Thirteenth navbar example">
         <div class="container-fluid">
+          <!-- Navbar Toggler for Mobile -->
           <button
-            class="navbar-toggler"
+            class="navbar-toggler mobileViewButton"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarsExample11"
             aria-controls="navbarsExample11"
-            aria-expanded="false"
+            aria-expanded="true"
             aria-label="Toggle navigation"
           >
             <span class="navbar-toggler-icon"></span>
           </button>
 
-          <div
-            class="navbar-collapse d-lg-flex collapse justify-content-between text-center"
-            id="navbarsExample11"
-          >
-            <!-- ITM University Logo -->
-            <a class="navbar-brand col-lg-3 me-0" href="#">
+          <!-- Navbar Content -->
+          <div class="navbar-collapse d-lg-flex collapse justify-content-between text-center" id="navbarsExample11">
+            <!-- Logo -->
+            <a class="navbar-brand col-lg-3 me-0 webViewPosition" href="#">
               <img
-                class="rounded-circle"
-                src="/Images/itm_logo.png"
-                alt="ITM University Logo"
-                width="60px"
-                height="40px"
+                src="\Images\itm_logo.png" /* Replace with your logo path */
+                alt="logo"
+                width="150px" /* Increased width */
+                height="auto" /* Proportional height */
               />
             </a>
-            <!-- Navbar Links -->
-            <ul class="navbar-nav col-lg-6 justify-content-lg-end">
-              <li class="nav-item">
-                <a
-                  class="nav-link active"
-                  aria-current="page"
-                  href="/home"
-                  >HOME</a
-                >
+
+            <!-- Navigation Links -->
+            <ul class="navbar-nav col-lg-6 justify-content-lg-end me-3">
+              <li class="nav-item my-auto">
+                <a class="nav-link active text-white me-3" aria-current="page" href="/home">HOME</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/about">ABOUT</a>
+              <li class="nav-item my-auto">
+                <a class="nav-link text-white me-3" href="/about">ABOUT</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/contact">CONTACT</a>
+              <li class="nav-item my-auto">
+                <a class="nav-link text-white me-3" href="/contact">CONTACT</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#"><%= n %></a>
+              <li class="nav-item my-auto">
+                <a class="nav-link text-white me-3" href="/profile" style="text-transform:capitalize;">
+                  Harsh Mangal
+                </a>
               </li>
-              <li class="nav-item dropdown">
+
+              <!-- Dropdown Menus Next to Logout -->
+              <li class="nav-item dropdown my-auto me-3">
                 <a
                   href="#"
-                  class="nav-link dropdown-toggle"
+                  class="nav-link d-block link-body-emphasis text-decoration-none dropdown-toggle text-white"
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
                   <img
-                    src="<%= i.url %>"
-                    alt="profile"
+                    src="https://res.cloudinary.com/dyd2ggq1o/image/upload/v1735995378/cfzmbcnp7z8xqqhpeilx.jpg"
+                    alt="mdo"
                     width="40"
                     height="40"
                     class="rounded-circle"
@@ -138,16 +130,22 @@
                   <li><a class="dropdown-item" href="/logout">Log out</a></li>
                 </ul>
               </li>
+
+              <!-- Logout Button -->
+              <li class="nav-item my-auto">
+                <a href="/logout">
+                  <button class="btn text-white me-3 border-light" style="background-color:#b23b3b;">
+                    <i class="bi bi-box-arrow-right me-2"></i>
+                    Log out
+                  </button>
+                </a>
+              </li>
             </ul>
           </div>
-
-          <!-- Logout Button for Mobile -->
-          <a href="/logout" class="logout-btn-mobile">
-            <button class="btn btn-logout">Log out</button>
-          </a>
         </div>
       </nav>
     </section>
+    <!-- End Navbar -->
 
     <!-- Bootstrap JS -->
     <script

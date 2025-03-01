@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -12,132 +11,166 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
-    <!-- Custom Styles for theme color -->
+    <!-- Custom Styles -->
     <style>
-      body {
-          background-color: #f4f4f4;
-      }
+        body {
+            background-color: #f7814f;
+            color: white;
+            font-family: 'Arial', sans-serif;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+        }
 
-      .bg-login {
-          background-color: #FAA73F;
-          color: white;
-          padding: 30px;
-          border-radius: 8px;
-      }
+        form {
+            width: 100%;
+            max-width: 400px;
+        }
 
-      .btn-primary {
-          background-color: #AA181C;
-          border: none;
-      }
+        .btn-primary {
+            background-color: #B23B3B;
+            border: none;
+            font-size: 1.2rem;
+            padding: 12px 30px;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
 
-      .btn-primary:hover {
-          background-color: #9d161a;
-      }
+        .btn-primary:hover {
+            background-color: #ad2a2a;
+        }
 
-      .alert-success {
-          background-color: #4caf50;
-          color: white;
-      }
+        .form-control {
+            border-radius: 10px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+        }
 
-      .alert-danger {
-          background-color: #f44336;
-          color: white;
-      }
+        .form-control:focus {
+            border-color: #FAA73F;
+            box-shadow: 0 0 5px rgba(250, 167, 63, 0.5);
+        }
 
-      .rounded-circle {
-          border-radius: 50% !important;
-      }
-  </style>
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-align: center;
+        }
 
+        .form-label {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .text-center img {
+            margin-bottom: 20px;
+            width: 60%;
+            height: auto;
+            transition: opacity 0.3s ease;
+        }
+
+        .form-control:focus ~ .text-center img {
+            opacity: 0.2;
+        }
+
+        .alert-success {
+            background-color: #4caf50;
+            color: white;
+        }
+
+        .alert-danger {
+            background-color: #fa1504;
+            color: white;
+        }
+
+        .login-link {
+            display: block;
+            text-align: center;
+            margin-top: 15px;
+            color: #fffefd;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .login-link:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 
 <body>
-
-    <!-- Register Here -->
-    <section id="register" class="my-5">
-        <div class="container">
-            <div class="row">
-                <!-- Column-1: Image -->
-                <div class="col-lg-6">
-                    <img class="w-100" src="./Images/CollegeStudentsImage-2.jpeg" alt="College Students Image-2" height="100%">
-                </div>
-                <br>
-
-                <!-- Column-2: Form -->
-                <div class="col-lg-6 bg-login">
-                    <!-- Card with Register Form -->
-                    <div class="text-center mb-4">
-                        <form action="/insertStudent" method="post" enctype="multipart/form-data">
-                            <!-- Logo -->
-                            <div class="text-center mb-4">
-                                <img class="rounded-circle" src="./Images/itm_logo.png" alt="ITM University Logo" width="20%" height="20%">
-                            </div>
-
-                            <!-- Heading (Register Here) -->
-                            <h1 class="mb-5 text-center">Register Here</h1>
-
-                            <% if(message.length > 0) { %>
-                            <div class="alert alert-danger">
-                                <%= message %>
-                            </div>
-                            <% } %>
-
-                            <% if(msg.length > 0) { %>
-                                <div class="alert alert-success">
-                                    <%= msg %>
-                                </div>
-                                <% } %>
-
-                            <!-- User Name -->
-                            <div class="mb-4">
-                                <label for="name" class="form-label">Name</label>
-                                <input id="name" name="name" class="form-control text-capitalize" type="text" placeholder="Enter your name" required />
-                            </div>
-
-                            <!-- Email -->
-                            <div class="mb-3">
-                                <label for="email" class="form-label">Email</label>
-                                <input id="email" name="email" class="form-control" type="email" placeholder="name@example.com" required />
-                            </div>
-
-                            <!-- Password -->
-                            <div class="mb-4">
-                                <label for="password" class="form-label">Password</label>
-                                <input id="password" name="password" class="form-control" type="password" placeholder="Enter your password" required />
-                            </div>
-
-                            <!-- Confirm Password -->
-                            <div class="mb-4">
-                                <label for="confirmpassword" class="form-label">Confirm Password</label>
-                                <input id="confirmpassword" name="confirmpasword" class="form-control" type="password" placeholder="Re-enter your password" required />
-                            </div>
-
-                            <!-- Image Upload -->
-                            <div class="mb-4">
-                                <label for="image" class="form-label">Upload Image</label>
-                                <input id="image" name="image" class="form-control" type="file" required />
-                            </div>
-
-                            <!-- Register Button -->
-                            <div class="d-flex justify-content-center">
-                                <button type="submit" class="btn btn-primary mb-5 btn-lg">
-                                    Register
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <!-- End Column-2 -->
-            </div>
+    <form action="/insertStudent" method="post" enctype="multipart/form-data">
+        <!-- Logo -->
+        <div class="text-center">
+            <br><br><br><br>
+            <img src="./Images/itm_logo.png" alt="ITM University Logo" class="rounded-circle">
         </div>
-    </section>
-    <!-- End Register Here -->
+
+        <!-- Heading -->
+        <h1>Register Here</h1>
+
+        <!-- Message Alerts -->
+        <% if(message.length > 0) { %>
+        <div class="alert alert-danger">
+            <%= message %>
+        </div>
+        <% } %>
+
+        <% if(msg.length > 0) { %>
+        <div class="alert alert-success">
+            <%= msg %>
+        </div>
+        <% } %>
+
+        <!-- User Name -->
+        <div class="mb-4">
+            <label for="name" class="form-label">Name</label>
+            <input id="name" name="name" class="form-control text-capitalize" type="text" placeholder="Enter your name"
+                required />
+        </div>
+
+        <!-- Email -->
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input id="email" name="email" class="form-control" type="email" placeholder="name@example.com" required />
+        </div>
+
+        <!-- Password -->
+        <div class="mb-4">
+            <label for="password" class="form-label">Password</label>
+            <input id="password" name="password" class="form-control" type="password" placeholder="Enter your password"
+                required />
+        </div>
+
+        <!-- Confirm Password -->
+        <div class="mb-4">
+            <label for="confirmpassword" class="form-label">Confirm Password</label>
+            <input id="confirmpassword" name="confirmpassword" class="form-control" type="password"
+                placeholder="Re-enter your password" required />
+        </div>
+
+        <!-- Image Upload -->
+        <div class="mb-4">
+            <label for="image" class="form-label">Upload Image</label>
+            <input id="image" name="image" class="form-control" type="file" required />
+        </div>
+
+        <!-- Register Button -->
+        <div class="d-flex justify-content-center">
+            <button type="submit" class="btn btn-primary btn-lg">Register</button>
+        </div>
+
+        <!-- Back to Login Link -->
+        <a href="/" class="login-link">Back to Login</a>
+    </form>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
-
 </body>
 
 </html>
